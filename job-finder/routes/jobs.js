@@ -6,8 +6,11 @@ router.get('/test' , (req,res) =>{
     res.send('Deu certo!')
 })
 
-router.post('/add' , (req , res) =>{
-    let {title, salary, company, description, email, new_job} = req.body
+router.post('/add', (req, res) => {
+
+    console.log(req.body);
+
+    let { title, salary, company, description, email, new_job } = req.body;
 
     Job.create({
         title,
@@ -18,7 +21,7 @@ router.post('/add' , (req , res) =>{
         new_job
     })
     .then(() => res.redirect('/'))
-    .catch(erro => console.log(erro))
-})
+    .catch(err => console.log(err));
+});
 
 module.exports = router
